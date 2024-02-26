@@ -1,0 +1,55 @@
+{
+  "name": "dynamsoft-capture-vision-std",
+  "version": "1.0.0",
+  "description": "The Dynamsoft Capture Vision STD module is a collection of classes and functions that facilitate the execution of other modules within the Dynamsoft Capture Vision architecture.",
+  "main": "std.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "echo \"No need to build.\"",
+    "update:readme": "updateReadme --package=dynamsoft-capture-vision-std --version=latest --no-html",
+    "update:prod": "updatePackage --package=dynamsoft-capture-vision-std --version=auto --env=production --tag=latest",
+    "update:beta": "updatePackage --package=dynamsoft-capture-vision-std --version=auto --env=beta --tag=beta",
+    "update:iv": "updatePackage --package=dynamsoft-capture-vision-std --version=auto --env=internalVersion --tag=iv",
+    "update:dev": "updatePackage --package=dynamsoft-capture-vision-std --version=auto --env=development --tag=latest",
+    "updateLink:npm": "updateLink --source=npm",
+    "updateLink:zip": "updateLink --source=zip",
+    "updateLink:github": "updateLink --source=github",
+    "easyPublish": "npm run update:dev && npm publish"
+  },
+  "keywords": [
+    "webassembly",
+    "dynamsoft",
+    "dynamsoft-capture-vision",
+    "sdk",
+    "javascript",
+    "typescript"
+  ],
+  "files": [
+    "/dist/*.js",
+    "/dist/*.wasm",
+    "/LEGAL.txt"
+  ],
+  "license": "SEE LICENSE IN LICENSE",
+  "sideEffects": false,
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "tag": "latest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Dynamsoft/capture-vision-std-javascript"
+  },
+  "author": {
+    "name": "Dynamsoft",
+    "url": "https://www.dynamsoft.com"
+  },
+  "maintainers": [
+    {
+      "name": "Dynamsoft",
+      "email": "support@dynamsoft.com"
+    }
+  ],
+  "devDependencies": {
+    "@dynamsoft/rd2-scripts": "^0.1.4"
+  }
+}

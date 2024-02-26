@@ -1,0 +1,55 @@
+{
+  "name": "dynamsoft-image-processing",
+  "version": "2.0.30",
+  "description": "The Dynamsoft Image Processing Module supports a range of operations that handle various tasks related to processing digital images.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "echo \"No need to build.\"",
+    "update:readme": "updateReadme --package=dynamsoft-image-processing --version=latest --no-html",
+    "update:prod": "updatePackage --package=dynamsoft-image-processing --version=auto --env=production --tag=latest",
+    "update:beta": "updatePackage --package=dynamsoft-image-processing --version=auto --env=beta --tag=beta",
+    "update:iv": "updatePackage --package=dynamsoft-image-processing --version=auto --env=internalVersion --tag=iv",
+    "update:dev": "updatePackage --package=dynamsoft-image-processing --version=auto --env=development --tag=latest",
+    "updateLink:npm": "updateLink --source=npm",
+    "updateLink:zip": "updateLink --source=zip",
+    "updateLink:github": "updateLink --source=github",
+    "easyPublish": "npm run update:dev && npm publish"
+  },
+  "sideEffects": false,
+  "keywords": [
+    "dynamsoft",
+    "dynamsoft-capture-vision",
+    "webassembly",
+    "sdk",
+    "javascript",
+    "typescript",
+    "image-processing"
+  ],
+  "files": [
+    "/dist/*.wasm",
+    "/LEGAL.txt"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "tag": "latest"
+  },
+  "author": {
+    "name": "Dynamsoft",
+    "url": "https://www.dynamsoft.com"
+  },
+  "maintainers": [
+    {
+      "name": "Dynamsoft",
+      "email": "support@dynamsoft.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Dynamsoft/image-processing-javascript"
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "devDependencies": {
+    "@dynamsoft/rd2-scripts": "^0.1.4"
+  }
+}
