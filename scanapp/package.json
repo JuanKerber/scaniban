@@ -22,6 +22,7 @@
     "webpack-merge": "^5.9.0"
   },
   "dependencies": {
+    "dynamsoft-javascript-barcode": "^9.6.33",
     "file-saverjs": "^1.3.6",
     "fs": "^0.0.1-security",
     "isbn3": "^1.1.45",
