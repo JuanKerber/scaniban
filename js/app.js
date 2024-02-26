@@ -29,10 +29,12 @@ myLink.onclick = function msg() {
         var cell2 = row.insertCell(1);
         var cell3 = row.insertCell(1);
         var cell4 = row.insertCell(1);
+        var cell5 = row.insertCell(1);
         cell1.innerHTML = i;
-        cell2.innerHTML = book.publisher;
-        cell3.innerHTML = book.title;
-        cell4.innerHTML = book.authors;
+        cell2.innerHTML = book.publishedDate;
+        cell3.innerHTML = book.publisher;
+        cell4.innerHTML = book.title;
+        cell5.innerHTML = book.authors;
 
         i = i+1;
     }
@@ -94,27 +96,43 @@ function downloadCSVFile(csv_data) {
     document.body.removeChild(temp_link);
 }
 
-        let isbnreader = null;
+var myLink = document.getElementById('buttoncam');
+// 9783140464079
+myLink.onclick = function cameraon() {
 
-        Dynamsoft.DBR.BarcodeReader.license = "DLS2eyJoYW5kc2hha2VDb2RlIjoiMTAyNjI3NzQwLVRYbFhaV0pRY205cSIsIm1haW5TZXJ2ZXJVUkwiOiJodHRwczovL21kbHMuZHluYW1zb2Z0b25saW5lLmNvbSIsIm9yZ2FuaXphdGlvbklEIjoiMTAyNjI3NzQwIiwic3RhbmRieVNlcnZlclVSTCI6Imh0dHBzOi8vc2Rscy5keW5hbXNvZnRvbmxpbmUuY29tIiwiY2hlY2tDb2RlIjo0MjMxODUyNjB9";
+    camera();
+  }
 
-        document.getElementById('image-file').addEventListener('change', async function () {
-            try {
-                // Use Dynamsoft JavaScript Barcode Reader
-                isbnreader = isbnreader || await Dynamsoft.DBR.BarcodeReader.createInstance();
-                let barcode_results = [];
-                let file = this.files[0];
-                let results = await isbnreader.decode(file);
-                for (let result of results) {
-                    barcode_results.push(result.barcodeText);
-                }
-
-                document.getElementById("barcode-result").innerText = 'Barcode result: ' + barcode_results.join('\n');
-
-                isbntotable(barcode_results);
-                
-            } catch (ex) {
-                alert(ex.message);
-                throw ex;
-            }
-        });
+// function camera() {
+//     Dynamsoft.License.LicenseManager.initLicense("DLS2eyJoYW5kc2hha2VDb2RlIjoiMTAyNjI3NzQwLVRYbFhaV0pRY205cSIsIm1haW5TZXJ2ZXJVUkwiOiJodHRwczovL21kbHMuZHluYW1zb2Z0b25saW5lLmNvbSIsIm9yZ2FuaXphdGlvbklEIjoiMTAyNjI3NzQwIiwic3RhbmRieVNlcnZlclVSTCI6Imh0dHBzOi8vc2Rscy5keW5hbXNvZnRvbmxpbmUuY29tIiwiY2hlY2tDb2RlIjo0MjMxODUyNjB9");
+//     (async () => {
+//         let router = await Dynamsoft.CVR.CaptureVisionRouter.createInstance();
+    
+//         let view = await Dynamsoft.DCE.CameraView.createInstance();
+//         let cameraEnhancer = await Dynamsoft.DCE.CameraEnhancer.createInstance(view);
+//         document.querySelector("#cameraViewContainer").append(view.getUIElement());
+//         router.setInput(cameraEnhancer);
+    
+//         // const resultsContainer = document.querySelector("#results");
+//         router.addResultReceiver({ onDecodedBarcodesReceived: (result) => {
+//           if (result.barcodeResultItems.length > 0) {
+//             for (let item of result.barcodeResultItems) {
+//             //   resultsContainer.textContent += `${item.formatString}: ${item.text}\n\n`;
+//             isbntotable(item.text);
+//             }
+//           }
+//         }});
+    
+//         let filter = new Dynamsoft.Utility.MultiFrameResultCrossFilter();
+//         filter.enableResultCrossVerification(
+//           Dynamsoft.Core.EnumCapturedResultItemType.CRIT_BARCODE, true
+//         );
+//         filter.enableResultDeduplication(
+//           Dynamsoft.Core.EnumCapturedResultItemType.CRIT_BARCODE, true
+//         );
+//         await router.addResultFilter(filter);
+    
+//         await cameraEnhancer.open();
+//         await router.startCapturing("ReadSingleBarcode");
+//       })();
+// }
