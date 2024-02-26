@@ -94,17 +94,17 @@ function downloadCSVFile(csv_data) {
     document.body.removeChild(temp_link);
 }
 
-        let reader = null;
+        let isbnreader = null;
 
         Dynamsoft.DBR.BarcodeReader.license = "DLS2eyJoYW5kc2hha2VDb2RlIjoiMTAyNjI3NzQwLVRYbFhaV0pRY205cSIsIm1haW5TZXJ2ZXJVUkwiOiJodHRwczovL21kbHMuZHluYW1zb2Z0b25saW5lLmNvbSIsIm9yZ2FuaXphdGlvbklEIjoiMTAyNjI3NzQwIiwic3RhbmRieVNlcnZlclVSTCI6Imh0dHBzOi8vc2Rscy5keW5hbXNvZnRvbmxpbmUuY29tIiwiY2hlY2tDb2RlIjo0MjMxODUyNjB9";
 
         document.getElementById('image-file').addEventListener('change', async function () {
             try {
                 // Use Dynamsoft JavaScript Barcode Reader
-                reader = reader || await Dynamsoft.DBR.BarcodeReader.createInstance();
+                isbnreader = isbnreader || await Dynamsoft.DBR.BarcodeReader.createInstance();
                 let barcode_results = [];
                 let file = this.files[0];
-                let results = await reader.decode(file);
+                let results = await isbnreader.decode(file);
                 for (let result of results) {
                     barcode_results.push(result.barcodeText);
                 }
